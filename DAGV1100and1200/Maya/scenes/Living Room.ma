@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Living Room.ma
-//Last modified: Fri, Sep 11, 2026 06:12:38 PM
+//Last modified: Fri, Sep 11, 2026 06:33:23 PM
 //Codeset: 1252
 requires maya "2027";
 requires -nodeType "UsdDefaultSettings" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.37.0";
@@ -10,21 +10,21 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "0B2AD268-4918-D5EF-A1FB-5EB569B88407";
+fileInfo "UUID" "A0E5F4E2-4DE5-6506-2AE5-5CBF0AB62D8A";
 createNode transform -s -n "persp";
 	rename -uid "B2F281F4-4D06-2A25-3D6A-DD826AD1CD83";
-	setAttr ".t" -type "double3" 9.0736434319304031 6.7384424434022332 22.629992390761888 ;
-	setAttr ".r" -type "double3" -17.399999999995554 713.59999999997149 1.0001563934534527e-15 ;
+	setAttr ".t" -type "double3" -34.085773627493474 14.449604805310553 16.856161462422243 ;
+	setAttr ".r" -type "double3" -17.399999999996442 657.99999999999113 3.3873773552872056e-15 ;
 	setAttr ".rpt" -type "double3" 1.6697471027143218e-15 1.2839451050081116e-15 3.4988839737128925e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "031F1506-49FD-C032-3B41-9FB41C8C1B96";
 	setAttr -k off ".v";
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 23.086837129394699;
+	setAttr ".coi" 40.531502812952894;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 12 0 0 ;
+	setAttr ".tp" -type "double3" -0.078457559005702393 -0.021551456846954593 0 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "024F51B0-4ACF-4933-EE7D-FB9112FB0FC4";
@@ -3339,6 +3339,19 @@ createNode transform -n "pCube24";
 createNode mesh -n "pCubeShape24" -p "pCube24";
 	rename -uid "ACBCF219-4526-8DA9-BC5C-9FBFCFE00DA6";
 	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".dr" 1;
+createNode mesh -n "polySurfaceShape1" -p "pCube24";
+	rename -uid "DA53ED62-408F-E278-6393-9EBF5DCA25D4";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 6 ".gtag";
@@ -7283,6 +7296,13 @@ createNode displayLayer -n "WallsLyr";
 createNode groupId -n "groupId18";
 	rename -uid "20B14DF4-4875-9273-3024-F988E6E6B52E";
 	setAttr ".ihi" 0;
+createNode polyMergeVert -n "polyMergeVert1";
+	rename -uid "ADE01ADD-4C36-0FFC-D44C-5CBCE3466B8D";
+	setAttr ".ics" -type "componentList" 1 "vtx[*]";
+	setAttr ".ix" -type "matrix" 0.14482789381446301 0 0 0 0 1.6249770486365491 0 0 0 0 1.4059437265745141 0
+		 -4.4901790857945869 4.0031043712421353 -8.511447708265683 1;
+	setAttr ".d" 0.005;
+	setAttr ".am" yes;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -7336,6 +7356,7 @@ select -ne :ikSystem;
 connectAttr "groupId11.id" "pCube13Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube13Shape.iog.og[0].gco";
 connectAttr "groupId10.id" "pCube13Shape.ciog.cog[0].cgid";
+connectAttr "polyMergeVert1.out" "pCubeShape24.i";
 connectAttr "groupId18.id" "pCube46Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube46Shape.iog.og[0].gco";
 connectAttr "groupId17.id" "pCube46Shape.ciog.cog[0].cgid";
@@ -7348,6 +7369,8 @@ relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":default
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "layerManager.dli[1]" "WallsLyr.id";
+connectAttr "polySurfaceShape1.o" "polyMergeVert1.ip";
+connectAttr "pCubeShape24.wm" "polyMergeVert1.mp";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
