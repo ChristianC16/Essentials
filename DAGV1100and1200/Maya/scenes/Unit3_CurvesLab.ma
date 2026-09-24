@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Unit3_CurvesLab.ma
-//Last modified: Wed, Sep 23, 2026 11:25:05 PM
+//Last modified: Wed, Sep 23, 2026 11:25:36 PM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -13,7 +13,7 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "BF1F1955-417B-934B-B804-A0BB88D88ACA";
+fileInfo "UUID" "89729D4A-42B9-55A5-9B66-92B5E0E76701";
 createNode transform -s -n "persp";
 	rename -uid "20C112AB-472C-EBE5-9F08-4D8E142B5925";
 	setAttr ".v" no;
@@ -2023,6 +2023,14 @@ createNode polyNormal -n "polyNormal3";
 	rename -uid "29030641-469A-5168-6A54-1BBABF4AC303";
 	setAttr ".ics" -type "componentList" 1 "f[*]";
 	setAttr ".unm" no;
+createNode polyNormal -n "polyNormal4";
+	rename -uid "E895BC35-48AF-EF2D-ED9D-1EBD911E5237";
+	setAttr ".ics" -type "componentList" 1 "f[*]";
+	setAttr ".unm" no;
+createNode polyNormal -n "polyNormal5";
+	rename -uid "63DF4800-4211-47D8-4234-F39433B1A80D";
+	setAttr ".ics" -type "componentList" 1 "f[0:9759]";
+	setAttr ".unm" no;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -2069,7 +2077,7 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-connectAttr "polyNormal3.out" "revolvedSurfaceShape1.i";
+connectAttr "polyNormal5.out" "revolvedSurfaceShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -2090,6 +2098,8 @@ connectAttr "polyExtrudeFace3.out" "polyNormal2.ip";
 connectAttr "polyNormal2.out" "polyExtrudeFace4.ip";
 connectAttr "revolvedSurfaceShape1.wm" "polyExtrudeFace4.mp";
 connectAttr "polyExtrudeFace4.out" "polyNormal3.ip";
+connectAttr "polyNormal3.out" "polyNormal4.ip";
+connectAttr "polyNormal4.out" "polyNormal5.ip";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "revolvedSurfaceShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of Unit3_CurvesLab.ma
