@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Living Room.ma
-//Last modified: Fri, Sep 11, 2026 06:33:23 PM
+//Last modified: Fri, Oct 02, 2026 07:08:02 PM
 //Codeset: 1252
 requires maya "2027";
 requires -nodeType "UsdDefaultSettings" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.37.0";
@@ -10,11 +10,11 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "A0E5F4E2-4DE5-6506-2AE5-5CBF0AB62D8A";
+fileInfo "UUID" "2EC25EE3-471E-DB68-AD76-1382100105AB";
 createNode transform -s -n "persp";
 	rename -uid "B2F281F4-4D06-2A25-3D6A-DD826AD1CD83";
-	setAttr ".t" -type "double3" -34.085773627493474 14.449604805310553 16.856161462422243 ;
-	setAttr ".r" -type "double3" -17.399999999996442 657.99999999999113 3.3873773552872056e-15 ;
+	setAttr ".t" -type "double3" -36.430248882550522 19.201518195280855 -6.4303990834312454 ;
+	setAttr ".r" -type "double3" -24.600000000003863 622.00000000000523 0 ;
 	setAttr ".rpt" -type "double3" 1.6697471027143218e-15 1.2839451050081116e-15 3.4988839737128925e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "031F1506-49FD-C032-3B41-9FB41C8C1B96";
@@ -7205,23 +7205,23 @@ createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
 	setAttr ".asp" -type "string" "UsdDefaultRenderSettings,/Render/SceneRenderSettings";
 lockNode -l 1 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "033B31BB-46C4-E000-48EF-D1950843CF76";
+	rename -uid "ABB84EBB-4D63-A7B6-B98B-B5A36C927569";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "A4E44F60-4E6B-E196-ACC7-04988A87E33B";
+	rename -uid "12131890-452B-AC02-4CE0-B4B62B38FD43";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "FF0F2218-4EAA-590B-9379-B1BD9D4C6679";
+	rename -uid "7A0E9B17-4C70-9112-52CF-96A6170C730D";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "CF1A5C75-43F0-1B07-8D45-A18AAFD2D351";
+	rename -uid "88633299-4E16-DA99-E547-758032C8B90E";
 	setAttr ".cdl" 1;
-	setAttr ".dli[1]"  1;
+	setAttr -s 2 ".dli[1]"  1;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "D8A35C04-4946-7476-47FD-26AF3B3B2FC8";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "9B771541-4CA1-E313-4854-79A43F71297E";
+	rename -uid "68B45D11-4FFE-8151-4E3B-2C9A9C4EBEFA";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "9B0B305C-475B-E795-0374-1EABA8D6430F";
 	setAttr ".g" yes;
@@ -7351,8 +7351,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "groupId11.id" "pCube13Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "pCube13Shape.iog.og[0].gco";
 connectAttr "groupId10.id" "pCube13Shape.ciog.cog[0].cgid";
