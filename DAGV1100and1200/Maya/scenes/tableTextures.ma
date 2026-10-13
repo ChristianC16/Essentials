@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: tableTextures.ma
-//Last modified: Thu, Oct 08, 2026 02:17:26 PM
+//Last modified: Tue, Oct 13, 2026 06:59:50 AM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -14,7 +14,7 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "69388615-4E5D-8413-0022-C48616D4E084";
+fileInfo "UUID" "139ABCAC-4A36-4799-4586-839D29E639ED";
 createNode transform -s -n "persp";
 	rename -uid "DF9FBD23-4FB1-A403-338B-6B96203566FE";
 	setAttr ".v" no;
