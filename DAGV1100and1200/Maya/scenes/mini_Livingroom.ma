@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: mini_Livingroom.ma
-//Last modified: Thu, Oct 22, 2026 02:03:47 PM
+//Last modified: Thu, Oct 22, 2026 02:10:56 PM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -14,18 +14,18 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "F24E0824-4B18-640B-9F0A-309C1530BA23";
+fileInfo "UUID" "1E601CD0-4026-282F-7AB5-7AAF4979B8EB";
 createNode transform -s -n "persp";
 	rename -uid "7F3BAE3A-421F-ECD6-B4AE-6499E1D78333";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -7.7841527728380049 12.262683348721422 -11.320833597595414 ;
-	setAttr ".r" -type "double3" -31.799999999995784 -139.99999999991596 0 ;
+	setAttr ".t" -type "double3" -31.253714404276657 17.424138206489911 -16.77784496268514 ;
+	setAttr ".r" -type "double3" -27.599999999992583 -117.99999999990879 0 ;
 	setAttr ".rpt" -type "double3" -1.0669373390344228e-15 5.9898281944423646e-16 -3.5551484609498316e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "E6FDCA01-492C-B3FB-75B0-A4853415E6A8";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 19.211776209956472;
+	setAttr ".coi" 40.362684483987302;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -7849,9 +7849,11 @@ createNode mesh -n "pasted__pCubeShape8" -p "pasted__pCube8";
 	setAttr ".gtag[5].gtagnm" -type "string" "top";
 	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.33333334 0.0014016231
+		 0.66666669 0.0014009079 0.33333334 0.015624404 0.66666669 0.015625119 0.33333334
+		 0.2545099 0.66666669 0.25450984 0.33333334 0.26671708 0.66666669 0.26671708 0.33333334
+		 0.50560093 0.66666669 0.50560093 1 3.9736431e-08 1 0.017030001 0 6.9589726e-17 0
+		 0.017029962;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -29090,8 +29092,8 @@ createNode mesh -n "pCubeShape158" -p "pCube158";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "A6467FFB-4E89-48C4-14FF-6B997FB95E25";
-	setAttr -s 4 ".lnk";
-	setAttr -s 4 ".slnk";
+	setAttr -s 5 ".lnk";
+	setAttr -s 5 ".slnk";
 createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
 	rename -uid "32B3DADB-4CFF-4681-30A1-658F259FA7AF";
 	setAttr ".srl" -type "string" "#usda 1.0\n(\n    renderSettingsPrimPath = \"/Render/SceneRenderSettings\"\n)\n\ndef Scope \"Render\"\n{\n    def RenderSettings \"SceneRenderSettings\"\n    {\n        custom string adskUsd:externalCamera = \"|persp\" (\n            displayName = \"External Camera\"\n        )\n        rel products = </Render/BeautyProduct>\n    }\n\n    def RenderVar \"color\"\n    {\n        uniform string sourceName = \"color\"\n    }\n\n    def RenderProduct \"BeautyProduct\"\n    {\n        rel orderedVars = </Render/color>\n        token productName = \"./default.png\"\n    }\n}\n\n";
@@ -29773,10 +29775,11 @@ createNode polyTweakUV -n "polyTweakUV4";
 		 0.1511001 0.025443405 0.1511001 0.056273878;
 createNode openPBRSurface -n "openPBRSurface1";
 	rename -uid "BF72866F-45E1-7F07-C568-2B88BB2303FF";
-	setAttr ".sr" 0.76923078298568726;
+	setAttr ".sr" 0.58333331346511841;
 createNode shadingEngine -n "openPBRSurface1SG";
 	rename -uid "70E3276B-4466-243A-DD63-34A7F4DD80E1";
 	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "4827997E-4E21-021D-B367-A4B6F81EE00E";
@@ -29800,36 +29803,65 @@ createNode shadingEngine -n "openPBRSurface2SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo2";
 	rename -uid "D0B4BC1B-4E28-22AC-E2DE-D78A272072B5";
+createNode file -n "ash_12598_in_architextures_1";
+	rename -uid "6AAC42F2-45A6-13EA-1CE7-DEBACCBD87B4";
+	setAttr ".ftn" -type "string" "C:/Users/tianc/GitRepos/Essentials/DAGV1100and1200//Maya/sourceimages/ash-12598-in-architextures.jpg";
+	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+createNode place2dTexture -n "place2dTexture3";
+	rename -uid "D1D160A3-497A-BAB9-BE72-95A88781FB94";
+createNode openPBRSurface -n "openPBRSurface3";
+	rename -uid "02F72F20-4656-FA7E-3630-EEB4ED743638";
+createNode shadingEngine -n "openPBRSurface3SG";
+	rename -uid "21C9CFE8-4CB8-70F7-9E71-ED9D5FB1ACF1";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo3";
+	rename -uid "128FDBB2-48D1-C7A0-BE26-61A12F64FBE5";
+createNode groupId -n "groupId2";
+	rename -uid "9457A39E-439A-BDC5-5290-3F8DD91FCF76";
+	setAttr ".ihi" 0;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "CC0C2CBB-472E-3602-9CF7-6C9A48BEB7BE";
+	rename -uid "9609F8E9-4996-56CC-F663-50BADF481EF1";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -497.70600930924007 -596.05200201369394 ;
-	setAttr ".tgi[0].vh" -type "double2" 1049.5519730589549 606.2758568966234 ;
-	setAttr -s 8 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 461.92889404296875;
-	setAttr ".tgi[0].ni[0].y" -245.23808288574219;
+	setAttr ".tgi[0].vl" -type "double2" 1228.1041215633843 -499.89787211011708 ;
+	setAttr ".tgi[0].vh" -type "double2" 2001.7331127474818 101.26605734504147 ;
+	setAttr -s 12 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -178.85787963867188;
+	setAttr ".tgi[0].ni[0].y" -2.499443531036377;
 	setAttr ".tgi[0].ni[0].nvs" 1971;
-	setAttr ".tgi[0].ni[1].x" -22.622587203979492;
-	setAttr ".tgi[0].ni[1].y" 336.07925415039062;
+	setAttr ".tgi[0].ni[1].x" 46.856410980224609;
+	setAttr ".tgi[0].ni[1].y" -2.499443531036377;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" -256.19735717773438;
-	setAttr ".tgi[0].ni[2].y" 334.15036010742188;
-	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" -114.90870666503906;
-	setAttr ".tgi[0].ni[3].y" -769.8853759765625;
-	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" 106.51986694335938;
-	setAttr ".tgi[0].ni[4].y" -769.8853759765625;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" 689.28570556640625;
-	setAttr ".tgi[0].ni[5].y" -245.23808288574219;
-	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" 401.39669799804688;
-	setAttr ".tgi[0].ni[6].y" 506.08187866210938;
-	setAttr ".tgi[0].ni[6].nvs" 1971;
-	setAttr ".tgi[0].ni[7].x" 724.0198974609375;
-	setAttr ".tgi[0].ni[7].y" 230.13777160644531;
-	setAttr ".tgi[0].ni[7].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" 1542.7099609375;
+	setAttr ".tgi[0].ni[2].y" -117.12117767333984;
+	setAttr ".tgi[0].ni[2].nvs" 1979;
+	setAttr ".tgi[0].ni[3].x" -4.039546012878418;
+	setAttr ".tgi[0].ni[3].y" 844.7900390625;
+	setAttr ".tgi[0].ni[3].nvs" 1931;
+	setAttr ".tgi[0].ni[4].x" -237.61430358886719;
+	setAttr ".tgi[0].ni[4].y" 842.86114501953125;
+	setAttr ".tgi[0].ni[4].nvs" 1931;
+	setAttr ".tgi[0].ni[5].x" 965.87237548828125;
+	setAttr ".tgi[0].ni[5].y" -641.7684326171875;
+	setAttr ".tgi[0].ni[5].nvs" 1931;
+	setAttr ".tgi[0].ni[6].x" 1187.3009033203125;
+	setAttr ".tgi[0].ni[6].y" -641.7684326171875;
+	setAttr ".tgi[0].ni[6].nvs" 1931;
+	setAttr ".tgi[0].ni[7].x" 1770.0667724609375;
+	setAttr ".tgi[0].ni[7].y" -117.12117767333984;
+	setAttr ".tgi[0].ni[7].nvs" 1931;
+	setAttr ".tgi[0].ni[8].x" 419.979736328125;
+	setAttr ".tgi[0].ni[8].y" 1014.7926635742188;
+	setAttr ".tgi[0].ni[8].nvs" 1979;
+	setAttr ".tgi[0].ni[9].x" -757.224853515625;
+	setAttr ".tgi[0].ni[9].y" -172.28070068359375;
+	setAttr ".tgi[0].ni[9].nvs" 1931;
+	setAttr ".tgi[0].ni[10].x" -535.7962646484375;
+	setAttr ".tgi[0].ni[10].y" -172.28070068359375;
+	setAttr ".tgi[0].ni[10].nvs" 1931;
+	setAttr ".tgi[0].ni[11].x" 742.60296630859375;
+	setAttr ".tgi[0].ni[11].y" 738.84857177734375;
+	setAttr ".tgi[0].ni[11].nvs" 1931;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -29841,17 +29873,17 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 	setAttr ".rtfm" 1;
 select -ne :renderPartition;
-	setAttr -s 4 ".st";
+	setAttr -s 5 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 8 ".s";
+	setAttr -s 9 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 2 ".u";
+	setAttr -s 3 ".u";
 select -ne :defaultRenderingList1;
 select -ne :defaultTextureList1;
-	setAttr -s 2 ".tx";
+	setAttr -s 3 ".tx";
 select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
@@ -29859,7 +29891,7 @@ select -ne :openPBR_shader1;
 	setAttr ".bc" -type "float3" 0.7604 0.7604 0.7604 ;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
-	setAttr -s 167 ".dsm";
+	setAttr -s 165 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -29917,10 +29949,12 @@ relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLigh
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "openPBRSurface1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "openPBRSurface2SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "openPBRSurface3SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "openPBRSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "openPBRSurface2SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "openPBRSurface3SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "polyCube6.out" "polyExtrudeFace1.ip";
@@ -29986,6 +30020,7 @@ connectAttr "polyAutoProj1.out" "polyTweakUV4.ip";
 connectAttr "oak_12894_in_architextures_1.oc" "openPBRSurface1.bc";
 connectAttr "openPBRSurface1.oc" "openPBRSurface1SG.ss";
 connectAttr "pasted__pCubeShape1.iog" "openPBRSurface1SG.dsm" -na;
+connectAttr "pasted__pCubeShape2.iog" "openPBRSurface1SG.dsm" -na;
 connectAttr "openPBRSurface1SG.msg" "materialInfo1.sg";
 connectAttr "openPBRSurface1.msg" "materialInfo1.m";
 connectAttr "oak_12894_in_architextures_1.msg" "materialInfo1.t" -na;
@@ -30063,32 +30098,72 @@ connectAttr "openPBRSurface2SG.msg" "materialInfo2.sg";
 connectAttr "openPBRSurface2.msg" "materialInfo2.m";
 connectAttr "us_brick_avalon_stretcher_2398_in_architextures_1.msg" "materialInfo2.t"
 		 -na;
-connectAttr "openPBRSurface1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr ":defaultColorMgtGlobals.cme" "ash_12598_in_architextures_1.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "ash_12598_in_architextures_1.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "ash_12598_in_architextures_1.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "ash_12598_in_architextures_1.ws";
+connectAttr "place2dTexture3.c" "ash_12598_in_architextures_1.c";
+connectAttr "place2dTexture3.tf" "ash_12598_in_architextures_1.tf";
+connectAttr "place2dTexture3.rf" "ash_12598_in_architextures_1.rf";
+connectAttr "place2dTexture3.mu" "ash_12598_in_architextures_1.mu";
+connectAttr "place2dTexture3.mv" "ash_12598_in_architextures_1.mv";
+connectAttr "place2dTexture3.s" "ash_12598_in_architextures_1.s";
+connectAttr "place2dTexture3.wu" "ash_12598_in_architextures_1.wu";
+connectAttr "place2dTexture3.wv" "ash_12598_in_architextures_1.wv";
+connectAttr "place2dTexture3.re" "ash_12598_in_architextures_1.re";
+connectAttr "place2dTexture3.of" "ash_12598_in_architextures_1.of";
+connectAttr "place2dTexture3.r" "ash_12598_in_architextures_1.ro";
+connectAttr "place2dTexture3.n" "ash_12598_in_architextures_1.n";
+connectAttr "place2dTexture3.vt1" "ash_12598_in_architextures_1.vt1";
+connectAttr "place2dTexture3.vt2" "ash_12598_in_architextures_1.vt2";
+connectAttr "place2dTexture3.vt3" "ash_12598_in_architextures_1.vt3";
+connectAttr "place2dTexture3.vc1" "ash_12598_in_architextures_1.vc1";
+connectAttr "place2dTexture3.o" "ash_12598_in_architextures_1.uv";
+connectAttr "place2dTexture3.ofs" "ash_12598_in_architextures_1.fs";
+connectAttr "ash_12598_in_architextures_1.oc" "openPBRSurface3.bc";
+connectAttr "openPBRSurface3.oc" "openPBRSurface3SG.ss";
+connectAttr "pasted__pCubeShape8.iog" "openPBRSurface3SG.dsm" -na;
+connectAttr "openPBRSurface3SG.msg" "materialInfo3.sg";
+connectAttr "openPBRSurface3.msg" "materialInfo3.m";
+connectAttr "ash_12598_in_architextures_1.msg" "materialInfo3.t" -na;
+connectAttr "openPBRSurface3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "us_brick_avalon_stretcher_2398_in_architextures_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "openPBRSurface3SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
-connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr "openPBRSurface1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "us_brick_avalon_stretcher_2398_in_architextures_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
-connectAttr "oak_12894_in_architextures_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
-connectAttr "openPBRSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "openPBRSurface2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "oak_12894_in_architextures_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "openPBRSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+connectAttr "openPBRSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+		;
+connectAttr "openPBRSurface2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+		;
+connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
+		;
+connectAttr "ash_12598_in_architextures_1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
+		;
+connectAttr "openPBRSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
 		;
 connectAttr "openPBRSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface2SG.pa" ":renderPartition.st" -na;
+connectAttr "openPBRSurface3SG.pa" ":renderPartition.st" -na;
 connectAttr "openPBRSurface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "openPBRSurface2.msg" ":defaultShaderList1.s" -na;
+connectAttr "openPBRSurface3.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture3.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "us_brick_avalon_stretcher_2398_in_architextures_1.msg" ":defaultTextureList1.tx"
 		 -na;
 connectAttr "oak_12894_in_architextures_1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "ash_12598_in_architextures_1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape5.iog" ":initialShadingGroup.dsm" -na;
@@ -30211,7 +30286,6 @@ connectAttr "pCubeShape134.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape135.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape137.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape139.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pasted__pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pasted__pasted__pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pasted__pasted__pasted__pCubeShape2.iog" ":initialShadingGroup.dsm"
 		 -na;
@@ -30253,7 +30327,6 @@ connectAttr "pasted__pasted__pasted__pCubeShape3.iog" ":initialShadingGroup.dsm"
 		 -na;
 connectAttr "pasted__pasted__pasted__pasted__pCubeShape3.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "pasted__pCubeShape8.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pasted__pCubeShape9.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pasted__pCubeShape10.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pasted__pCubeShape11.iog" ":initialShadingGroup.dsm" -na;
