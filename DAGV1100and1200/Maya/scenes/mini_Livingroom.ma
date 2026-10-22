@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: mini_Livingroom.ma
-//Last modified: Thu, Oct 22, 2026 02:10:56 PM
+//Last modified: Thu, Oct 22, 2026 02:11:39 PM
 //Codeset: 1252
 requires maya "2027";
 requires "stereoCamera" "10.0";
@@ -14,7 +14,7 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "1E601CD0-4026-282F-7AB5-7AAF4979B8EB";
+fileInfo "UUID" "B81E3B83-4A00-9FEB-F857-128C4D252FCD";
 createNode transform -s -n "persp";
 	rename -uid "7F3BAE3A-421F-ECD6-B4AE-6499E1D78333";
 	setAttr ".v" no;
@@ -29821,7 +29821,7 @@ createNode groupId -n "groupId2";
 	rename -uid "9457A39E-439A-BDC5-5290-3F8DD91FCF76";
 	setAttr ".ihi" 0;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "9609F8E9-4996-56CC-F663-50BADF481EF1";
+	rename -uid "0087C676-482F-0A6B-127A-6CBA1A6D26DE";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" 1228.1041215633843 -499.89787211011708 ;
 	setAttr ".tgi[0].vh" -type "double2" 2001.7331127474818 101.26605734504147 ;
